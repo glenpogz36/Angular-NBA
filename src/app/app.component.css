@@ -1,0 +1,104 @@
+.menu{
+    background-color: #003780;
+    cursor: pointer;
+}
+a{
+color: white;
+font-style: inherit;
+}
+.menu-dropdown{
+color: white;
+font-style: inherit;
+
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+  }
+
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #003780;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  .dropdown-content a {
+	color: blue;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }
+
+.onoffswitch {
+    position: relative; width: 57px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    content: "efwfe";
+    left: 50%;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 19px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 12px; padding: 0; line-height: 12px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 7px;
+    background-color: #0C169C; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 7px;
+    background-color: #0C169C; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 13px; margin: -0.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 41px;
+    border: 2px solid #999999; border-radius: 19px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+    background-color: #FFFFFF; 
+}
+.login{
+height: 30px;
+width:30px;
+color: white;
+}
