@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { NBA } from './models/nba.model';
-import { DataService } from './data.service';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  nba$: NBA[];
 
-  constructor(private dataService: DataService) { }
+@Injectable()
+export class AppComponent {
+  teams = [];
+  title = 'app';
+  data;
 
-  ngOnInit() {
-    return this.dataService.getUsers()
-      .subscribe(data => this.nba$ = data);
+  constructor(private http: Http) {
+
   }
+
 }
 
