@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_material-edits.scss";
+@import "_grid.scss";
+@import "_main.scss";
+@import "_main-nav.scss";
+@import "_elements.scss";
+@import "_datatable.scss";
+
+
+/* Override Material Autocomplete style in nav bar */
+#main-nav > span > app-search > mat-form-field > div > div.mat-input-underline.mat-form-field-underline,
+#main-nav > span > app-search > mat-form-field > div > div.mat-input-underline.mat-form-field-underline > span{
+    background-color: white !important;
+}
+
+#main-nav > span > app-search > mat-form-field > div > div.mat-input-flex.mat-form-field-flex > div > span > label{
+    color: white;
+}
+
+#mat-input-0{
+    caret-color: white;
+}
