@@ -1,30 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs';
+
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http'
-import { MainNavComponent } from './core/main-nav/main-nav.component';
-import { HomePageComponent } from './core/home-page/home-page.component';
-import { NbaComponent } from './nba/nba.component';
-import { GameComponent } from './nba/game/game.component';
-import { GameBoxscoreComponent } from './nba/game-boxscore/game-boxscore.component';
-import { GameListComponent } from './nba/game-list/game-list.component';
-import { GameListDateComponent } from './nba/game-list-date/game-list-date.component';
-import { GameLogComponent } from './nba/game-log/game-log.component';
-import { PlayersComponent } from './nba/players/players.component';
-import { SharedComponent } from './nba/shared/shared.component';
-import { TeamsComponent } from './nba/teams/teams.component';
-import { CoreModule } from './core/main-nav/core.module';
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
     HttpClientModule,
-  
+    HttpModule,
+    AppRoutingModule
+   
   ],
   bootstrap: [AppComponent]
 })
