@@ -6,6 +6,13 @@ function navbarResponse() {
         x.className = "main-nav";
     }
 }
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
 
 $(document).ready(function () {
     $(".nav-link").click(function () {
