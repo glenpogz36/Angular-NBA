@@ -13,26 +13,18 @@ import { GameLogComponent } from './nba/game-log/game-log.component';
 import { PlayersComponent } from './nba/players/players.component';
 import { SharedComponent } from './nba/shared/shared.component';
 import { TeamsComponent } from './nba/teams/teams.component';
+import { CoreModule } from './core/main-nav/core.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent,
-    HomePageComponent,
-    NbaComponent,
-    GameComponent,
-    GameBoxscoreComponent,
-    GameListComponent,
-    GameListDateComponent,
-    GameLogComponent,
-    PlayersComponent,
-    SharedComponent,
-    TeamsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    CoreModule,
+    HttpClientModule,
+  
   ],
   bootstrap: [AppComponent]
 })

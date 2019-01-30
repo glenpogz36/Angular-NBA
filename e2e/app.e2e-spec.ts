@@ -1,10 +1,10 @@
-import { AppPage } from './app.po';
+import { NbaStatsPage } from './app.po';
 
-describe('angular-nba App', () => {
-  let page: AppPage;
+describe('nba-stats App', () => {
+  let page: NbaStatsPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new NbaStatsPage();
   });
 
   it('should display welcome message', () => {

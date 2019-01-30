@@ -16,8 +16,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AppComponent {
   teams = [];
-  title = 'app';
-  data;
+  title = 'NBA';
+  
 
   constructor(private http: Http) {
 
