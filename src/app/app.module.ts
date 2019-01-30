@@ -9,11 +9,13 @@ import { Observable } from 'rxjs';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { SharedComponent } from './shared/shared.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SharedComponent
   ],
   imports: [
     BrowserModule,

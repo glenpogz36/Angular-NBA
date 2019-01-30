@@ -18,6 +18,9 @@ import { HomeService } from './home-page/home.service'
         MainNavComponent,
     ],
     declarations: [
+        HomePageComponent,
+        MainNavComponent,
+
 
     ],
     providers: [
