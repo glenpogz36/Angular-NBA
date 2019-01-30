@@ -1,9 +1,24 @@
+
+
+
 <!-- <nav class="main-nav" id="main-nav">
-  <div class="menu">
+  <a href="/" class="active">Home</a>
+  <a class="nav-link" routerLink="/teams">Teams <span class="sr-only">(current)</span></a>
+  <a class="nav-link" routerLink="/players">Players <span class="sr-only">(current)</span></a>
+  <a class="nav-link" routerLink="/games">Games <span class="sr-only">(current)</span></a>
+  <a class="nav-link" routerLink="/compare">Compare <span class="sr-only">(current)</span></a>
+  <a href="javascript:void(0);" class="icon" onclick="navbarResponse()">&#9776;</a>
+  <span class="main-nav-search">
+      <app-search *ngIf="players" [players]="players" (selectedPlayer)="navigateToPlayer($event)"></app-search>
+  </span>
+  
+</nav> -->
+
+
+<div class="menu">
     <div class="dropdown">
-      <a href="javascript:void(0);" class="icon" onclick="navbarResponse()">&#9776;</a>
+      <p class="menu-dropdown">&#9776;</p>
       <div class="dropdown-content">
-        <app-search *ngIf="players" [players]="players" (selectedPlayer)="navigateToPlayer($event)"></app-search>
         <a href="/">NBA VR</a>
         <a href="/">Full Schedules</a>
         <a href="/">Key Dates</a>
@@ -23,7 +38,7 @@
         <a href="/">NBA Info</a>
       </div>
     </div>
-    <span><img class="login" src="../assets/img/nbalogo.png" alt="account"></span>
+    <span><img class="login" src="../assets/imgs/nbalogo.png" alt="account"></span>
     <a href="">Scores</a>
     <a href="">Schedules</a>
     <a href="">News</a>
@@ -31,7 +46,7 @@
     <a href="">NBA TV</a>
     <a href="">Standings</a>
     <a href="">Stats</a>
-
+  
     <div class="dropdown">
       <p class="menu-dropdown">Pick 'Em</p>
       <div class="dropdown-content">
@@ -42,60 +57,43 @@
         <a href="/">Fantasy & Gaming</a>
       </div>
     </div>
-    <nav>
-      <div class="dropdown">
-        <p class="menu-dropdown">Shop</p>
-        <div class="dropdown-content">
-          <a href="/">Jerseys</a>
-          <a href="/">Men</a>
-          <a href="/">Women</a>
-          <a href="/">Kids</a>
-          <a href="/">Custom Shop</a>
-          <a href="/">HardWood Classics</a>
-          <a href="/">Hats</a>
-          <a href="/">Footwear</a>
-          <a href="/">Auctions</a>
-          <a href="/">NBA Game Worn</a>
-          <a href="/">NYS Store</a>
-          <a href="/">NBA Photo Store</a>
-        </div>
+  
+    <div class="dropdown">
+      <p class="menu-dropdown">Shop</p>
+      <div class="dropdown-content">
+        <a href="/">Jerseys</a>
+        <a href="/">Men</a>
+        <a href="/">Women</a>
+        <a href="/">Kids</a>
+        <a href="/">Custom Shop</a>
+        <a href="/">HardWood Classics</a>
+        <a href="/">Hats</a>
+        <a href="/">Footwear</a>
+        <a href="/">Auctions</a>
+        <a href="/">NBA Game Worn</a>
+        <a href="/">NYS Store</a>
+        <a href="/">NBA Photo Store</a>
       </div>
-      <a href="">Tickets</a>
-      <a href="">NBA Leaugue Pass</a>
-      <a href="">Shop</a>
-      <div class="dropdown">
-        <span><img class="login" src="../assets/img/login.png" alt="account"></span>
-        <div class="dropdown-content">
-          <a href="/">Account Details</a>
-          <a href="/">Help</a>
-
-          <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-            <label class="onoffswitch-label" for="myonoffswitch">
-              <span class="onoffswitch-inner"></span>
-              <span class="onoffswitch-switch"></span>
-            </label>
-          </div>
-
-        </div>
+    </div>
+    <a href="">Tickets</a>
+    <a href="">NBA Leaugue Pass</a>
+    <a href="">Shop</a>
+    <div class="dropdown">
+      <span><img class="login" src="../assets/imgs/login.png" alt="account"></span>
+      <div class="dropdown-content">
+        <a href="/">Account Details</a>
+        <a href="/">Help</a>
+        <p> Hide Scores</p>
+        <label class="switch">
+          <input class="switch-input" type="checkbox" />
+          <span name="sdasd" class="switch-label" data-on="On" data-off="Off"></span> 
+          <span class="switch-handle"></span> 
+        </label>
+  
       </div>
+    </div>
   </div>
   <div class="container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9pJTA5jao6Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
-</nav> -->
-
-
-<!-- <nav class="main-nav" id="main-nav">
-  <a href="/" class="active">Home</a>
-  <a class="nav-link" routerLink="/teams">Teams <span class="sr-only">(current)</span></a>
-  <a class="nav-link" routerLink="/players">Players <span class="sr-only">(current)</span></a>
-  <a class="nav-link" routerLink="/games">Games <span class="sr-only">(current)</span></a>
-  <a class="nav-link" routerLink="/compare">Compare <span class="sr-only">(current)</span></a>
-  <a href="javascript:void(0);" class="icon" onclick="navbarResponse()">&#9776;</a>
-  <span class="main-nav-search">
-      <app-search *ngIf="players" [players]="players" (selectedPlayer)="navigateToPlayer($event)"></app-search>
-  </span>
-  
-</nav> -->
