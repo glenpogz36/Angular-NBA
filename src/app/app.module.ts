@@ -9,13 +9,21 @@ import { Observable } from 'rxjs';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { SearchComponent } from './search/search.component';
 
+import { AuthInterceptor } from './shared/auth-interceptor';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +31,12 @@ import { SearchComponent } from './search/search.component';
     HttpClientModule,
     HttpModule,
     AppRoutingModule
-   
+  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  }
   ],
   bootstrap: [AppComponent]
 })

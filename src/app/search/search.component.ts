@@ -20,10 +20,40 @@ export class SearchComponent implements OnInit {
   playerCtrl: FormControl;
 
   constructor() {
-  
+    this.playerCtrl = new FormControl();
+    this.filteredPlayers = this.playerCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(player => player ? this.filterPlayers(player) : this.players.slice())
+      );
   }
 
   ngOnInit() {
   }
 
+  filterPlayers(name: string) {
+    return this.players.filter(player => {
+      const players_name = player.player.FirstName + ' ' + player.player.LastName;
+      if(players_name.toLowerCase().indexOf(name.toLowerCase()) === 0) {
+        return true;
+      } else if(player.player.LastName.toLowerCase().indexOf(name.toLowerCase()) === 0) {
+        return true;
+      } else if (player.player.FirstName.toLowerCase().indexOf(name.toLowerCase()) === 0 ){
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  selectPlayer(evt, player) {
+    if (evt.source.selected) {
+      this.selectedPlayer.emit(player);
+    }
+    
+  }
+
+  ngOnDestroy() {
+    this.players = [];
+  }
 }
