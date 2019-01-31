@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedComponent } from './shared/shared.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SharedComponent
+    SharedComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
