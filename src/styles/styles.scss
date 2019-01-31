@@ -23,3 +23,27 @@
 #mat-input-0{
     caret-color: white;
 }
+
+@media all and (max-width: 959px) {
+
+    .content .one{display:block;}
+    .content .two{display:none;}
+    .content .three{display:none;}
+
+}
+
+@media all and (max-width: 720px) {
+
+    .content .one{display:none;}
+    .content .two{display:block;}
+    .content .three{display:none;}
+
+}
+
+@media all and (max-width: 479px) {
+
+    .content .one{display:none;}
+    .content .two{display:none;}
+    .content .three{display:block;}
+
+}
