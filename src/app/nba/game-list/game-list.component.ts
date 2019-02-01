@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Functions } from '../../shared/functions';
+
+/** SERVICES */
+import { GamesService } from '../nba.service';
 
 @Component({
   selector: 'app-game-list',
@@ -7,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameListComponent implements OnInit {
 
-  constructor() { }
+  todaysDate;
+  yesterdaysDate;
+
+  constructor(
+    private gamesService: GamesService
+  ) {
+    this.todaysDate = Functions.getTodaysDateString();
+    this.yesterdaysDate = Functions.getYesterdaysDateString();
+  }
 
   ngOnInit() {
   }
