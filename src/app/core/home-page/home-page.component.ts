@@ -16,10 +16,10 @@ import { HomeService } from './home.service';
 })
 export class HomePageComponent implements OnInit {
 
-    articles: Article[] = [];
-    // Subscriptions
-    subscription: Subscription[] = [];
-    todaysDate;
+  articles: Article[] = [];
+  // Subscriptions
+  subscription: Subscription[] = [];
+  todaysDate;
 
   constructor(
     private homeService: HomeService
@@ -31,18 +31,17 @@ export class HomePageComponent implements OnInit {
   }
 
   getNBANews() {
-    const sub = this.homeService.getNBANews().subscribe( (data) => {
+    const sub = this.homeService.getNBANews().subscribe((data) => {
       this.articles = data.articles;
     });
-    
+
     this.subscription.push(sub);
   }
 
   ngOnDestroy() {
     for (const sub of this.subscription) {
-        sub.unsubscribe();
+      sub.unsubscribe();
     }
   }
 
 }
-
