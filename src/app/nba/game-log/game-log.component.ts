@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { GamesService } from '../games.service';
+import { GamesService } from '../nba.service';
 
 @Component({
   selector: 'app-game-log',
