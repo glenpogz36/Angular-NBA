@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 
 
 /** COMPONENTS */
-import { LeagueLeadersComponent } from './league-leaders/league-leaders.component';
+
 import { PlayersComponent } from './players.component';
 import { PlayerComponent } from './player/player.component';
-import { PlayerListComponent } from './player-list/player-list.component';
+
 
 /** MODULES */
 import { PlayersRoutingModule } from './players-routing.module';
-import { GamesModule } from '../games/games.module'
+import { GamesModule } from '../nba/nba.module'
 import { ChartModule, DataTableModule, SharedModule } from 'primeng/primeng';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -30,8 +30,6 @@ import { PlayersService } from './players.service';
     declarations: [
         PlayersComponent,
         PlayerComponent,
-        PlayerListComponent,
-        LeagueLeadersComponent
     ],
     exports: [
         PlayersComponent

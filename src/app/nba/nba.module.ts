@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NBARoutingModule } from './nba-routing.module';
-import { PlayersService } from './nba.service';
+import { GamesService } from './nba.service';
 import { NbaComponent } from './nba.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { GameComponent } from './game/game.component';
@@ -32,7 +32,7 @@ import { GameBoxscoreComponent } from './game-boxscore/game-boxscore.component';
         GameLogComponent
     ],
     providers: [
-        PlayersService
+        GamesService
     ]
 })
 export class GamesModule { }

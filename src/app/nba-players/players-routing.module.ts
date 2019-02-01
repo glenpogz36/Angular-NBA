@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PlayersComponent } from './players.component';
 import { PlayerComponent } from './player/player.component';
-import { PlayerListComponent } from './player-list/player-list.component';
+
 
 @NgModule({
     imports: [
@@ -11,10 +11,6 @@ import { PlayerListComponent } from './player-list/player-list.component';
                 path: 'players',
                 component: PlayersComponent,
                 children: [
-                    {
-                        path: '',
-                        component: PlayerListComponent
-                    },
                     {
                         path: ':id',
                         component: PlayerComponent
