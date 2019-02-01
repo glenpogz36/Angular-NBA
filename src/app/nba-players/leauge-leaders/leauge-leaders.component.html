@@ -1,0 +1,15 @@
+<span class="page-title">League Leaders</span>
+<div *ngIf="leagueLeadersLoaded && !loadingFail" class="card-row-3">
+  <div *ngFor="let key of arrayOfKeys" class="card card__white">
+    <h3>{{ leagueLeaders[key]['title'] }}</h3>
+    <ol class="league-leader-list">
+      <li *ngFor="let player of leagueLeaders[key]">
+        <span class="player-name"><a [routerLink]="['/players', player.player.ID]">{{ player.player.FirstName }} {{
+            player.player.LastName }}</a></span>
+        <span class="player-stat">{{ player.stats[leagueLeaders[key]['stat']]['#text'] }}</span>
+      </li>
+    </ol>
+  </div>
+</div>
+<mat-spinner *ngIf="!leagueLeadersLoaded"></mat-spinner>
+<p *ngIf="leagueLeadersLoaded && loadingFail" class="loading-error">An error occured, please refresh and try again!</p>
