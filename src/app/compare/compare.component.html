@@ -1,0 +1,16 @@
+<div *ngIf="players && players.length > 0">
+    <div class="card-row-2">
+        <div class="card card__white">
+            <app-compare-select (selectedPlayer)="loadPlayer('one', $event)" [players]="players"></app-compare-select>
+            <app-compare-selected-player *ngIf="playerOne" [player]="playerOne"></app-compare-selected-player>
+        </div>
+        <div class="card card__white">
+            <app-compare-select (selectedPlayer)="loadPlayer('two', $event)" [players]="players"></app-compare-select>
+            <app-compare-selected-player *ngIf="playerTwo" [player]="playerTwo"></app-compare-selected-player>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="playerOne && playerTwo">
+    <app-player-compare [playerOneSelected]="playerOne" [playerTwoSelected]="playerTwo"></app-player-compare>
+</div>

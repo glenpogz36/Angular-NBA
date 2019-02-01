@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatchupComponent } from './matchup.component';
+import { CompareSelectComponent } from './compare-select.component';
 
-describe('MatchupComponent', () => {
-  let component: MatchupComponent;
-  let fixture: ComponentFixture<MatchupComponent>;
+describe('CompareSelectComponent', () => {
+  let component: CompareSelectComponent;
+  let fixture: ComponentFixture<CompareSelectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatchupComponent ]
+      declarations: [ CompareSelectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatchupComponent);
+    fixture = TestBed.createComponent(CompareSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
