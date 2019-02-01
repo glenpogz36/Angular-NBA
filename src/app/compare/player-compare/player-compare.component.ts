@@ -9,7 +9,7 @@ import { Chart } from 'chart.js';
 import { Player } from '../../shared/classes/player';
 
 /** Services */
-import { PlayersService } from '../../players/players.service';
+import { PlayersService } from '../../nba-players/players.service';
 
 @Component({
   selector: 'app-player-compare',

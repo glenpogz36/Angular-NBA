@@ -1,0 +1,186 @@
+<div *ngIf="team">
+  <div class="card-row-3">
+
+    <div class="card card__white">
+      <h1>{{ team.City }} {{ team.Name }}</h1><br>
+      <img class="stat-team-image" src="assets/imgs/{{team.Abbreviation}}.png">
+      <div class="stat-team-info">
+        <span class="stat-team-info__big">{{ team.Wins['#text'] }}W - {{ team?.Losses['#text'] }}L</span>
+        <div *ngIf="gameLogs">
+          <h5>Last Game:</h5>
+          <div *ngIf="gameLogs[0].game.awayTeam.Abbreviation != team.Abbreviation">
+            <div>
+              vs. <a href="teams/{{gameLogs[0].game.awayTeam.Abbreviation}}"><img class="vs-image" src="assets/imgs/{{gameLogs[0].game.awayTeam.Abbreviation}}.png"></a>
+            </div>
+            <div class="vs-info">
+              <span *ngIf="gameLogs[0].stats.Wins['#text'] == 1" class="green-text"> {{ gameLogs[0].stats.Pts['#text']
+                }} - {{ gameLogs[0].stats.PtsAgainst['#text'] }} W</span>
+              <span *ngIf="gameLogs[0].stats.Wins['#text'] == 0" class="red-text"> {{ gameLogs[0].stats.Pts['#text'] }}
+                - {{ gameLogs[0].stats.PtsAgainst['#text'] }} L</span>
+            </div>
+          </div>
+          <div *ngIf="gameLogs[0].game.homeTeam.Abbreviation != team.Abbreviation">
+            @ <a href="teams/{{gameLogs[0].game.homeTeam.Abbreviation}}"><img class="vs-image" src="assets/imgs/{{gameLogs[0].game.homeTeam.Abbreviation}}.png"></a>
+            <div class="vs-info">
+              <span *ngIf="gameLogs[0].stats.Wins['#text'] == 1" class="green-text"> {{ gameLogs[0].stats.Pts['#text']
+                }} - {{ gameLogs[0].stats.PtsAgainst['#text'] }} W</span>
+              <span *ngIf="gameLogs[0].stats.Wins['#text'] == 0" class="red-text"> {{ gameLogs[0].stats.Pts['#text'] }}
+                - {{ gameLogs[0].stats.PtsAgainst['#text'] }} L</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card card__dark_gray">
+      <h3>Season Stats</h3>
+      <div class="stats-season">
+        <div class="row">
+          <div class="col-md-4 stat__big">
+            {{ team.PtsPerGame['#text'] }} PPG
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ team.RebPerGame['#text'] }} RPG
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ team.AstPerGame['#text'] }} APG
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            {{ team.StlPerGame['#text'] }} SPG
+          </div>
+          <div class="col-md-4">
+            {{ team.BlkPerGame['#text'] }} BPG
+          </div>
+          <div class="col-md-4">
+            {{ team.TovPerGame['#text'] }} TOPG
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="row">
+          <div class="col-md-4 stat__big">
+            {{ team.FgPct['#text'] }} FG%<br>
+            <span class="stat-card-shooting">{{ team.FgMadePerGame['#text'] }}-{{ team.FgAttPerGame['#text'] }}</span>
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ team.Fg3PtPct['#text'] }} 3P%<br>
+            <span class="stat-card-shooting">{{ team.Fg3PtMadePerGame['#text'] }}-{{ team.Fg3PtAttPerGame['#text'] }}</span>
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ team.FtPct['#text'] }} FT%<br>
+            <span class="stat-card-shooting">{{ team.FtMadePerGame['#text'] }}-{{ team.FtAttPerGame['#text'] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card__purple">
+      <h3>Past Month</h3>
+      <mat-spinner *ngIf="!monthStatsLoaded"></mat-spinner>
+      <div class="stats-season" *ngIf="monthStatsLoaded">
+        <div class="row">
+          <div class="col-md-4 stat__big">
+            {{ monthAverages['Pts'].average }} PPG
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ monthAverages['Reb'].average }} RPG
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ monthAverages['Ast'].average }} APG
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            {{ monthAverages['Stl'].average}} SPG
+          </div>
+          <div class="col-md-4">
+            {{ monthAverages['Blk'].average }} BPB
+          </div>
+          <div class="col-md-4">
+            {{ monthAverages['Tov'].average }} TOPG
+          </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="row">
+          <div class="col-md-4 stat__big">
+            {{ monthAverages['FgPct'].total }} FG%<br>
+            <span class="stat-card-shooting">{{ monthAverages['FgMade'].average }}-{{ monthAverages['FgAtt'].average }}</span>
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ monthAverages['Fg3PtPct'].total }} 3P%<br>
+            <span class="stat-card-shooting">{{ monthAverages['Fg3PtMade'].average }}-{{
+              monthAverages['Fg3PtAtt'].average }}</span>
+          </div>
+          <div class="col-md-4 stat__big">
+            {{ monthAverages['FtPct'].total }} FT%<br>
+            <span class="stat-card-shooting">{{ monthAverages['FtMade'].average }}-{{ monthAverages['FtAtt'].average }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card-row-3">
+  <div class="card">
+    <canvas [hidden]="!radarLoaded && !radarFailed" id="radarChart" width="200" height="200">{{ radarChart }}</canvas>
+    <mat-spinner *ngIf="!radarLoaded"></mat-spinner>
+    <p *ngIf="radarLoaded && radarFailed" style="color: black;">An error occured, please refresh and try again!</p>
+  </div>
+  <div class="card">
+    <canvas [hidden]="!doughnutLoaded" id="doughnutChart" width="200" height="200">{{ doughnutChart }}</canvas>
+    <mat-spinner *ngIf="!doughnutLoaded"></mat-spinner>
+  </div>
+  <div class="card">
+    <canvas [hidden]="!barChartLoaded" id="groupedBarChart" width="200" height="200">{{ groupedBarChart }}</canvas>
+    <mat-spinner *ngIf="!barChartLoaded"></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="players">
+  <p-dataTable [(value)]="players" [responsive]="true">
+    <p-column header="Player">
+      <ng-template let-player="rowData" pTemplate="body">
+        <a [routerLink]="['/players', player.ID]" class="bold-column">{{ player.FirstName }} {{player.LastName}}</a>
+      </ng-template>
+    </p-column>
+    <p-column header="Pts/G" sortable="custom" (sortFunction)="sortPlayers(players, 'PtsPerGame')">
+      <ng-template let-player="rowData" pTemplate="body" let-sort="sortFn">
+        {{ player.PtsPerGame['#text'] }}
+      </ng-template>
+    </p-column>
+    <p-column header="Ast/G" sortable="custom" (sortFunction)="sortPlayers(players, 'AstPerGame')">
+      <ng-template let-player="rowData" pTemplate="body">
+        {{ player.AstPerGame['#text'] }}
+      </ng-template>
+    </p-column>
+    <p-column header="Reb/G" sortable="custom" (sortFunction)="sortPlayers(players, 'RebPerGame')">
+      <ng-template let-player="rowData" pTemplate="body">
+        {{ player.RebPerGame['#text'] }}
+      </ng-template>
+    </p-column>
+    <p-column header="Stl/G" sortable="custom" (sortFunction)="sortPlayers(players, 'StlPerGame')">
+      <ng-template let-player="rowData" pTemplate="body">
+        {{ player.StlPerGame['#text'] }}
+      </ng-template>
+    </p-column>
+    <p-column header="Blk/G" sortable="custom" (sortFunction)="sortPlayers(players, 'BlkPerGame')">
+      <ng-template let-player="rowData" pTemplate="body">
+        {{ player.BlkPerGame['#text'] }}
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</div>

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Player } from '../shared/classes/player';
 
 /** SERVICES */
-import { PlayersService } from '../players/players.service';
+import { PlayersService } from '../nba-players/players.service';
 
 @Component({
   selector: 'app-compare',

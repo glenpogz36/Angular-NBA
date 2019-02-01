@@ -10,23 +10,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CompareModule } from './compare/compare.module';
 import { CoreModule } from './core/core.module';
-import { TeamsModule } from '../teams/teams.module';
-import { GamesModule } from './games/games.module';
-import { PlayersModule } from './players/players.module';
+import { TeamsModule } from './teams/teams.module';
+import { GamesModule } from './nba/nba.module';
+import { PlayersModule } from './nba-players/players.module';
 
 import { AuthInterceptor } from './shared/auth-interceptor';
-import { MatchupComponent } from './matchup/matchup.component';
-import { MatchupSelectComponent } from './matchup/matchup-select/matchup-select.component';
-import { MatchupSelectedplayersComponent } from './matchup/matchup-selectedplayers/matchup-selectedplayers.component';
-import { MatchupCompareComponent } from './matchup/matchup-compare/matchup-compare.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MatchupComponent,
-    MatchupSelectComponent,
-    MatchupSelectedplayersComponent,
-    MatchupCompareComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 /** SERVICES */
 import { PlayersService } from './players.service';
 import { PlayerListComponent } from './player-list/player-list.component';
-import { LeagueLeadersComponent } from './leauge-leaders/leauge-leaders.component';
+import { LeagueLeadersComponent } from './league-leaders/league-leaders.component';
 
 @NgModule({
     imports: [

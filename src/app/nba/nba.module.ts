@@ -1,9 +1,8 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NBARoutingModule } from './nba-routing.module';
+import { GamesRoutingModule } from './nba-routing.module';
 import { GamesService } from './nba.service';
-import { NbaComponent } from './nba.component';
+import { GamesComponent } from './nba.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { GameComponent } from './game/game.component';
 import { GameLogComponent } from './game-log/game-log.component';
@@ -15,18 +14,18 @@ import { GameBoxscoreComponent } from './game-boxscore/game-boxscore.component';
     imports: [
         CommonModule,
         DataTableModule,
-        NBARoutingModule
+        GamesRoutingModule
     ],
     declarations: [
-        NbaComponent,
+        GamesComponent,
         GameListComponent,
         GameComponent,
         GameLogComponent,
         GameListDateComponent, GameBoxscoreComponent
     ],
     exports: [
-        NbaComponent,
         GameComponent,
+        GamesComponent,
         GameListComponent,
         GameListDateComponent,
         GameLogComponent

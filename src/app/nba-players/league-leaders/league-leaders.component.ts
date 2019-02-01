@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Functions } from '../../shared/functions';
 
 /** SERVICES */
-import { PlayersService } from '../../nba-players/players.service';
+import { PlayersService } from '../players.service';
 
 @Component({
   selector: 'app-league-leaders',
@@ -22,8 +22,8 @@ export class LeagueLeadersComponent implements OnInit {
 
   constructor(
     private playersService: PlayersService
-  ) {
-
+  ) { 
+    
   }
 
   ngOnInit() {
@@ -33,44 +33,45 @@ export class LeagueLeadersComponent implements OnInit {
   loadLeagueLeaders() {
     const stats = [
       {
-        'stat': 'PtsPerGame',
-        'abbr': 'PTS/G',
-        'title': 'Points Per Game'
+        'stat' : 'PtsPerGame',
+        'abbr' : 'PTS/G',
+        'title' : 'Points Per Game'
       },
       {
-        'stat': 'AstPerGame',
-        'abbr': 'AST/G',
-        'title': 'Assists Per Game'
+        'stat' : 'AstPerGame',
+        'abbr' : 'AST/G',
+        'title' : 'Assists Per Game'
       },
       {
-        'stat': 'RebPerGame',
-        'abbr': 'REB/G',
-        'title': 'Rebounds Per Game'
+        'stat' : 'RebPerGame',
+        'abbr' : 'REB/G',
+        'title' : 'Rebounds Per Game'
       },
       {
-        'stat': 'StlPerGame',
-        'abbr': 'STL/G',
-        'title': 'Steals Per Game'
+        'stat' : 'StlPerGame',
+        'abbr' : 'STL/G',
+        'title' : 'Steals Per Game'
       },
       {
-        'stat': 'BlkPerGame',
-        'abbr': 'BS/G',
-        'title': 'Blocks Per Game'
+        'stat' : 'BlkPerGame',
+        'abbr' : 'BS/G',
+        'title' : 'Blocks Per Game'
       },
       {
-        'stat': 'Fg3PtMade',
-        'abbr': '3PM',
-        'title': 'Three Pointers Made'
+        'stat' : 'Fg3PtMade',
+        'abbr' : '3PM',
+        'title' : 'Three Pointers Made'
       }
     ];
 
-    stats.forEach(stat => {
-      Functions.sleep(1000).then(() => {
-        const sub = this.playersService.getLeagueLeaders(stat['abbr'], 'latest', 10).subscribe((data) => {
-          this.leagueLeaders[stat['abbr']] = data.cumulativeplayerstats.playerstatsentry;
-          this.leagueLeaders[stat['abbr']].stat = stat['stat'];
-          this.leagueLeaders[stat['abbr']].title = stat['title'];
-        },
+    stats.forEach( stat => {
+      Functions.sleep(1000).then(() =>
+        {   
+          const sub = this.playersService.getLeagueLeaders(stat['abbr'], 'latest', 10).subscribe( (data) => {
+            this.leagueLeaders[stat['abbr']] = data.cumulativeplayerstats.playerstatsentry;
+            this.leagueLeaders[stat['abbr']].stat = stat['stat'];
+            this.leagueLeaders[stat['abbr']].title = stat['title'];
+          },
           (err) => {
             this.leagueLeadersLoaded = true;
             this.loadingFail = true;
@@ -83,19 +84,19 @@ export class LeagueLeadersComponent implements OnInit {
               this.arrayOfKeys = Object.keys(this.leagueLeaders);
               this.leagueLeadersLoaded = true;
               console.log(this.leagueLeaders);
-
+              
             }
           })
-        this.subscription.push(sub);
-      }
+          this.subscription.push(sub);
+        }
       );
-
+      
     });
   }
 
   ngOnDestroy() {
     for (const sub of this.subscription) {
-      sub.unsubscribe();
+        sub.unsubscribe();
     }
   }
 }
