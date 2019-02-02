@@ -3,3 +3,12 @@ app-search{
     margin-right: 1em;
     color: white;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.logo{
+    height: 40px;;
+    width: 40px;;
+}
