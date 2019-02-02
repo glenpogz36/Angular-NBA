@@ -5,11 +5,17 @@
     <a class="nav-link" routerLink="/players">Leauge Leaders <span class="sr-only">(current)</span></a>
     <a class="nav-link" routerLink="/games">Schedules <span class="sr-only">(current)</span></a>
     <a class="nav-link" routerLink="/compare">Matchup <span class="sr-only">(current)</span></a>
-    <img src="../../../assets/imgs/search.png" alt="logo" class="logo">
+
+
+
     <a href="javascript:void(0);" class="icon" onclick="navbarResponse()">&#9776;</a>
     <span class="main-nav-search">
-        <app-search *ngIf="players" [players]="players" (selectedPlayer)="navigateToPlayer($event)"></app-search>
+        <app-search *ngIf="players" [players]="players" (selectedPlayer)="navigateToPlayer($event)"> <img src="../../../assets/imgs/search.png"
+                alt="logo" class="logo"></app-search>
     </span>
+    <img src="../../../assets/imgs/search.png" alt="logo" class="logo">
 
-
+    <a href="https://store.nba.com/" target="_blank"><img src="../../../assets/imgs/nba-store.png" alt="store" class="store"></a>
+    <br>
+    <a href="http://www.nba.com/video" target="_blank"><img src="../../../assets/imgs/video.png" alt="video" class="video"></a>
 </nav>
