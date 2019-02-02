@@ -40,7 +40,7 @@ export class Team {
     Stl: number;
     Blk: number;
     PtsAgainst: number;
-
+    
     //Misc
     Fouls: number;
     FoulsDrawn: number;
@@ -70,14 +70,14 @@ export class Team {
     FtMadePerGame: number;
     OffRebPerGame: number;
     AstPerGame: number;
-    PtsPerGame: number;
+    PtsPerGame:number;
     TovPerGame: number;
     BlkAgainstPerGame: number;
 
     //Defense
     DefRebPerGame: number;
     RebPerGame: number;
-    StlPerGame: number;
+    StlPerGame:number;
     BlkPerGame: number;
     PtsAgainstPerGame: number;
 
@@ -95,7 +95,7 @@ export class Team {
     PlusMinusPerGame: number;
 
 
-    constructor() {
+    constructor(){
         //General Information
         this.ID = 0;
         this.City = "";
@@ -104,5 +104,5 @@ export class Team {
 
         //Stat Totals
         this.GamesPlayed = 0;
-    }
+	}
 }

@@ -11,8 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CompareModule } from './compare/compare.module';
 import { CoreModule } from './core/core.module';
 import { TeamsModule } from './teams/teams.module';
-import { GamesModule } from './nba/nba.module';
-import { PlayersModule } from './nba-players/players.module';
+import { GamesModule } from './games/games.module';
+import { PlayersModule } from './players/players.module';
 
 import { AuthInterceptor } from './shared/auth-interceptor';
 
@@ -30,7 +30,7 @@ import { AuthInterceptor } from './shared/auth-interceptor';
     GamesModule,
     PlayersModule,
     AppRoutingModule
-
+   
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

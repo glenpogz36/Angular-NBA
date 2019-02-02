@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Player } from '../../shared/classes/player';
 
 /** SERVICES */
-import { PlayersService } from '../../nba-players/players.service'
+import { PlayersService } from '../../players/players.service'
 
 @Component({
   selector: 'app-main-nav',
@@ -15,12 +15,12 @@ import { PlayersService } from '../../nba-players/players.service'
 })
 export class MainNavComponent implements OnInit {
 
-  players: Player[] = [];
+  players:  Player[] = [];
 
   // Subscriptions
   subscription: Subscription[] = [];
 
-  constructor(
+  constructor( 
     private router: Router,
     private playersService: PlayersService
   ) { }
@@ -31,7 +31,7 @@ export class MainNavComponent implements OnInit {
   }
 
   getActivePlayers() {
-    const sub = this.playersService.getActivePlayersForSearch().subscribe(
+    const sub = this.playersService.getActivePlayersForSearch().subscribe( 
       (data) => {
         console.log(data);
         this.players = [];
@@ -46,12 +46,12 @@ export class MainNavComponent implements OnInit {
   };
 
   navigateToPlayer(evt) {
-    this.router.navigate(['/players', evt.player.ID]);
+    this.router.navigate(['/players', evt.player.ID]); 
   }
 
   ngOnDestroy() {
     for (const sub of this.subscription) {
-      sub.unsubscribe();
+        sub.unsubscribe();
     }
   }
 

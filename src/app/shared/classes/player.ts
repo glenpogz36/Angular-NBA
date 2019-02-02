@@ -1,5 +1,4 @@
 export class Player {
-
     //General Information
     ID: number;
     LastName: string;
@@ -43,7 +42,7 @@ export class Player {
     Stl: number;
     Blk: number;
     PtsAgainst: number;
-
+    
     //Misc
     Fouls: number;
     FoulsDrawn: number;
@@ -73,14 +72,14 @@ export class Player {
     FtMadePerGame: number;
     OffRebPerGame: number;
     AstPerGame: number;
-    PtsPerGame: number;
+    PtsPerGame:number;
     TovPerGame: number;
     BlkAgainstPerGame: number;
 
     //Defense
     DefRebPerGame: number;
     RebPerGame: number;
-    StlPerGame: number;
+    StlPerGame:number;
     BlkPerGame: number;
     PtsAgainstPerGame: number;
 
@@ -98,13 +97,10 @@ export class Player {
     PlusMinusPerGame: number;
 
 
-    constructor() {
+    constructor(){
         this.LastName = '';
         this.FirstName = '';
         this.JerseyNumber = 0;
         this.Position = '';
-    }
-}
-{
-
+	}
 }

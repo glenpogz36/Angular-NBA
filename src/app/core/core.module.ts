@@ -1,30 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { MainNavComponent } from './main-nav/main-nav.component'
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { HomePageComponent } from './home-page/home-page.component'
 
-// Services
-import { HomeService } from './home-page/home.service'
+/** SERVICES */
+import { HomeService } from './home-page/home.service';
+
+/** MODULES */
+import { SearchModule } from '../shared/search/search.module';
+import { GamesModule } from '../games/games.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-
-    ],
-    exports: [
-        HomePageComponent,
-        MainNavComponent,
-    ],
-    declarations: [
-        HomePageComponent,
-        MainNavComponent,
-
-
-    ],
-    providers: [
-        HomeService,
-    ]
+  imports: [
+    CommonModule,
+    GamesModule,
+    RouterModule,
+    SearchModule
+  ],
+  exports: [
+    MainNavComponent,
+    HomePageComponent
+  ],
+  declarations: [
+    MainNavComponent,
+    HomePageComponent
+  ],
+  providers: [
+    HomeService
+  ]
 })
 export class CoreModule { }

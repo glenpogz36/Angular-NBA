@@ -10,68 +10,68 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class TeamsService {
 
-    private apiURL = 'https://api.mysportsfeeds.com/v1.1/pull/nba/latest/overall_team_standings.json';
+  private apiURL = 'https://api.mysportsfeeds.com/v1.1/pull/nba/latest/overall_team_standings.json';
 
-    constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-    getLeagueLeaders(stat, season = "latest", limit?, conference?) {
-        let requestUrl = environment.baseUrl + `/${season}/overall_team_standings.json`;
-        const headers = new HttpHeaders();
+  getLeagueLeaders(stat, season = "latest", limit?, conference?) {
+    let requestUrl = environment.baseUrl + `/${season}/overall_team_standings.json`;
+    const headers = new HttpHeaders();
 
-        let params = new HttpParams();
+    let params = new HttpParams();
 
-        params = params.append('teamstats', stat);
+    params = params.append('teamstats', stat);
 
-        if (limit) {
-            params = params.append('limit', limit);
-        } else {
-            params = params.append('limit', '10');
-        }
-
-        if (conference) {
-            params = params.append('division', conference);
-        }
-
-        params = params.append('sort', `stats.${stat}.D`);
-
-
-        return this.http.get(requestUrl, { headers: headers, params: params }).map((res: any) => res);
+    if (limit) {
+      params = params.append('limit', limit);
+    } else {
+      params = params.append('limit', '10');
     }
 
-    getTeamStandings() {
-        const headers = new HttpHeaders();
-        headers.set('Content-Type', 'application/json; charset=utf-8');
-
-        return this.http.get(this.apiURL, { headers: headers }).map((res: any) => res);
+    if (conference) {
+      params = params.append('division', conference);
     }
 
-    getTeamInfo(team, season = "latest") {
-        let requestUrl = environment.baseUrl + `/${season}/overall_team_standings.json`;
+    params = params.append('sort', `stats.${stat}.D`);
+    
 
-        const headers = new HttpHeaders();
-        headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.get(requestUrl, {headers: headers, params: params}).map((res: any) => res);
+  }
 
-        const params = new HttpParams()
-            .set('team', String(team));
-        //.set('teamstats', 'W');
+  getTeamStandings(){
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
 
-        return this.http.get(requestUrl, { headers: headers, params: params }).map((res: any) => res);
-    }
+    return this.http.get(this.apiURL, {headers: headers}).map((res: any) => res);
+  }
 
-    getTeamPlayers(team, season = "latest") {
-        let requestUrl = environment.baseUrl + `/${season}/cumulative_player_stats.json`;
+  getTeamInfo(team, season = "latest"){
+    let requestUrl = environment.baseUrl + `/${season}/overall_team_standings.json`;
 
-        const headers = new HttpHeaders();
-        headers.set('Content-Type', 'application/json; charset=utf-8');
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
 
-        const params = new HttpParams()
-            .set('team', String(team))
-            .set('playerstats', 'PTS/G,AST/G,REB/G,STL/G,BS/G')
-            .set('sort', 'stats.PTS/G.d')
-            .set('limit', '15');
+    const params = new HttpParams()
+    .set('team', String(team));
+    //.set('teamstats', 'W');
+    
+    return this.http.get(requestUrl, {headers: headers, params: params}).map((res: any) => res);
+  }
 
+  getTeamPlayers(team, season = "latest"){
+    let requestUrl = environment.baseUrl + `/${season}/cumulative_player_stats.json`;
 
-        return this.http.get(requestUrl, { headers: headers, params: params }).map((res: any) => res);
-    }
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    const params = new HttpParams()
+    .set('team', String(team))
+    .set('playerstats', 'PTS/G,AST/G,REB/G,STL/G,BS/G')
+    .set('sort', 'stats.PTS/G.d')
+    .set('limit', '15');
+    
+
+    return this.http.get(requestUrl, {headers: headers, params: params}).map((res: any) => res);
+  }
 
 }

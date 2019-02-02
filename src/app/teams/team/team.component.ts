@@ -12,7 +12,7 @@ import { Player } from '../../shared/classes/player';
 
 /** SERVICES */
 import { TeamsService } from '../teams.service';
-import { GamesService } from '../../nba/nba.service';
+import { GamesService } from '../../games/games.service';
 
 @Component({
   selector: 'app-team',
@@ -55,17 +55,17 @@ export class TeamComponent implements OnInit {
 
   ngOnInit() {
     this.watchForIdChange = this.route.params.subscribe(params => {
-
+      
       this.selectedTeam = params['abbreviation'];
-      if (this.stream) {
+      if(this.stream) {
         this.stream.unsubscribe();
       }
 
-      if (this.radarChart !== undefined) {
+      if(this.radarChart !== undefined){
         this.radarChart.destroy();
       }
 
-      if (this.doughnutChart !== undefined) {
+      if(this.doughnutChart !== undefined){
         this.doughnutChart.destroy();
       }
 
@@ -78,7 +78,7 @@ export class TeamComponent implements OnInit {
   }
 
   createDoughnutChart() {
-    if (this.doughnutChart !== undefined) {
+    if(this.doughnutChart !== undefined){
       this.doughnutChart.destroy();
     }
 
@@ -87,14 +87,14 @@ export class TeamComponent implements OnInit {
       data: {
         labels: ['3Pt', '2PT', 'FT'],
         datasets: [
-          {
-            backgroundColor: ['rgba(255,105,180, .5)', 'rgba(63,70,173, .5)', 'rgba(101, 210, 242, .7)'],
-            data: [
-              this.team.Fg3PtMadePerGame['#text'] * 3,
-              this.team.Fg2PtMadePerGame['#text'] * 2,
-              this.team.FtMadePerGame['#text'],
-            ]
-          }
+            {
+                backgroundColor: ['rgba(255,105,180, .5)', 'rgba(63,70,173, .5)', 'rgba(101, 210, 242, .7)'],
+                data: [
+                  this.team.Fg3PtMadePerGame['#text'] * 3, 
+                  this.team.Fg2PtMadePerGame['#text'] * 2,
+                  this.team.FtMadePerGame['#text'],
+                ]
+            }
         ]
       },
       options: {
@@ -109,7 +109,7 @@ export class TeamComponent implements OnInit {
   }
 
   createGroupedBarChart() {
-    if (this.groupedBarChart !== undefined) {
+    if(this.groupedBarChart !== undefined){
       this.groupedBarChart.destroy();
     }
 
@@ -135,9 +135,9 @@ export class TeamComponent implements OnInit {
         },
         scales: {
           yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
+              ticks: {
+                  beginAtZero: true
+              }
           }]
         },
         animation: false
@@ -148,38 +148,38 @@ export class TeamComponent implements OnInit {
   }
 
   createRadarChart() {
-    if (this.radarChart !== undefined) {
+    if(this.radarChart !== undefined){
       this.radarChart.destroy();
     }
-
+    
     this.radarChart = new Chart('radarChart', {
       type: 'radar',
       data: {
         labels: ['Pt', 'Reb', 'Ast', 'Stl', 'Blk'],
         datasets: [
-          {
-            label: 'Stat as  % of League Leader',
-            backgroundColor: 'rgba(77,173,247, .5)',
-            borderColor: '#228AE6',
-            pointBackgroundColor: '#228AE6',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [
-              this.team.PtsPerGame['#text'] / this.leagueTopStat['PTS/G'] * 100,
-              this.team.RebPerGame['#text'] / this.leagueTopStat['REB/G'] * 100,
-              this.team.AstPerGame['#text'] / this.leagueTopStat['AST/G'] * 100,
-              this.team.StlPerGame['#text'] / this.leagueTopStat['STL/G'] * 100,
-              this.team.BlkPerGame['#text'] / this.leagueTopStat['BS/G'] * 100
-            ]
-          }
+            {
+                label: 'Stat as  % of League Leader',
+                backgroundColor: 'rgba(77,173,247, .5)',
+                borderColor: '#228AE6',
+                pointBackgroundColor: '#228AE6',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(179,181,198,1)',
+                data: [
+                  this.team.PtsPerGame['#text'] / this.leagueTopStat['PTS/G'] * 100, 
+                  this.team.RebPerGame['#text'] / this.leagueTopStat['REB/G'] * 100, 
+                  this.team.AstPerGame['#text'] / this.leagueTopStat['AST/G'] * 100, 
+                  this.team.StlPerGame['#text'] / this.leagueTopStat['STL/G'] * 100, 
+                  this.team.BlkPerGame['#text'] / this.leagueTopStat['BS/G'] * 100
+                ]
+            }
         ]
       },
       options: {
         scale: {
           ticks: {
-            min: 0,
-            max: 100
+              min: 0,
+              max: 100
           }
         },
         title: {
@@ -195,66 +195,66 @@ export class TeamComponent implements OnInit {
   getLeagueLeaderStats() {
     const stats = [
       {
-        'stat': 'PtsPerGame',
-        'abbr': 'PTS/G'
+        'stat' : 'PtsPerGame',
+        'abbr' : 'PTS/G'
       },
       {
-        'stat': 'AstPerGame',
-        'abbr': 'AST/G'
+        'stat' : 'AstPerGame',
+        'abbr' : 'AST/G'
       },
       {
-        'stat': 'RebPerGame',
-        'abbr': 'REB/G'
+        'stat' : 'RebPerGame',
+        'abbr' : 'REB/G'
       },
       {
-        'stat': 'StlPerGame',
-        'abbr': 'STL/G'
+        'stat' : 'StlPerGame',
+        'abbr' : 'STL/G'
       },
       {
-        'stat': 'BlkPerGame',
-        'abbr': 'BS/G'
+        'stat' : 'BlkPerGame',
+        'abbr' : 'BS/G'
       }
     ];
 
-    stats.forEach(stat => {
-      const sub = this.teamsService.getLeagueLeaders(stat['abbr'], 'latest', 1).subscribe((data) => {
+    stats.forEach( stat => {
+      const sub = this.teamsService.getLeagueLeaders(stat['abbr'], 'latest', 1).subscribe( (data) => {
         this.leagueTopStat[stat['abbr']] = data.overallteamstandings.teamstandingsentry[0].stats[stat.stat]['#text'];
       },
-        (err) => {
-          this.radarFailed = true;
-          this.radarLoaded = true;
-          return;
-        },
-        () => {
-          if (Object.keys(this.leagueTopStat).length >= stats.length) {
-            this.createRadarChart();
-          }
-          this.createDoughnutChart();
-          this.createGroupedBarChart();
+      (err) => {
+        this.radarFailed = true;
+        this.radarLoaded = true;
+        return;
+      },
+      () => {
+        if (Object.keys(this.leagueTopStat).length >= stats.length) {
+          this.createRadarChart();
         }
-      );
+        this.createDoughnutChart();
+        this.createGroupedBarChart();
+      }
+    );
       this.subscription.push(sub);
     });
-
+    
   }
 
   getTeamGameLogPastMonth(team) {
-    const sub = this.gamesService.getTeamGameLogPastMonth(team).subscribe((data) => {
+    const sub = this.gamesService.getTeamGameLogPastMonth(team).subscribe( (data) => {
       this.gameLogs = data.teamgamelogs.gamelogs;
 
-      if (this.gameLogs.length < 0) {
+      if (this.gameLogs.length < 0){
         return [];
       }
       this.gameLogs.reverse();
 
       const averages = ['Pts', 'Reb', 'Ast', 'Stl', 'Blk', 'Tov', 'FgMade', 'FgAtt',
-        'Fg3PtMade', 'Fg3PtAtt', 'FtMade', 'FtAtt'];
+                        'Fg3PtMade', 'Fg3PtAtt', 'FtMade', 'FtAtt'];
       this.monthAverages = [];
 
-      for (let stat of averages) {
+      for(let stat of averages) {
         this.monthAverages[stat] = [];
         this.monthAverages[stat]['total'] = 0;
-        for (let i = 0; i < this.gameLogs.length; i++) {
+        for(let i=0; i < this.gameLogs.length; i++) {
           this.monthAverages[stat]['total'] += Number(this.gameLogs[i].stats[stat]['#text']);
         }
         this.monthAverages[stat]['average'] = Number((this.monthAverages[stat]['total'] / this.gameLogs.length).toFixed(1));
@@ -274,8 +274,8 @@ export class TeamComponent implements OnInit {
     this.subscription.push(sub);
   }
 
-  getTeamInfo(team) {
-    this.teamsService.getTeamInfo(team).subscribe((data) => {
+  getTeamInfo(team){
+    this.teamsService.getTeamInfo(team).subscribe( (data) => {
       let teamInfo = data.overallteamstandings.teamstandingsentry[0].team;
       let teamStats = data.overallteamstandings.teamstandingsentry[0].stats;
 
@@ -287,9 +287,9 @@ export class TeamComponent implements OnInit {
     });
   }
 
-  getTeamPlayers(team) {
-    this.teamsService.getTeamPlayers(team).subscribe((data) => {
-      for (var i = 0; i < data.cumulativeplayerstats.playerstatsentry.length; i++) {
+  getTeamPlayers(team){
+    this.teamsService.getTeamPlayers(team).subscribe( (data) => {
+      for(var i = 0; i < data.cumulativeplayerstats.playerstatsentry.length; i++){
         let playerInfo = data.cumulativeplayerstats.playerstatsentry[i].player;
         let playerStats = data.cumulativeplayerstats.playerstatsentry[i].stats;
         let player = new Player;
@@ -301,7 +301,7 @@ export class TeamComponent implements OnInit {
     });
   }
 
-  sortPlayers(players, sortBy) {
+  sortPlayers(players, sortBy){
     this.players = Functions.sort(players, sortBy);
   }
 
@@ -314,7 +314,7 @@ export class TeamComponent implements OnInit {
     }
 
     for (const sub of this.subscription) {
-      sub.unsubscribe();
+        sub.unsubscribe();
     }
   }
 
