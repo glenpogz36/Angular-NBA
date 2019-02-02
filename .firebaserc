@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "nba": "angular-nba-230220",
+    "default": "angular-nba-230220"
+  }
+}
